@@ -13,3 +13,32 @@ updates:
   directory: "/gen"
   schedule:
     interval: "daily"
+- package-ecosystem: docker
+  directories:
+  - /
+  - /gen
+  schedule:
+    interval: weekly
+  open-pull-requests-limit: 5
+  groups:
+    routine-updates:
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
+- package-ecosystem: gomod
+  directories:
+  - /govc
+  - /hack/tools
+  - /vcsim
+  schedule:
+    interval: weekly
+  open-pull-requests-limit: 5
+  groups:
+    routine-updates:
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
